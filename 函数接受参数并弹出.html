@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		var myfun = function(a,b){
+			alert(a.value);
+			alert(b.value);
+		};
+		window.onload = function(){
+			var oInput = document.getElementsByTagName("input");
+			var oBtn = document.getElementsByTagName("button")[0];
+			oBtn.onclick = function(){
+				myfun(oInput[0],oInput[1]);
+			}
+		}
+	</script>
+	<style type="text/css">
+		body{text-align:center;}
+		input{padding:3px;}
+	</style>
+</head>
+<body>
+	<p><input type="text" value="北京市" /></p>
+	<p><input type="text" value="朝阳区" /></p>
+	<p><button>提交</button></p>
+</body>
+</html>

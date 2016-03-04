@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>求数组中所有数的和</title>
+		<script>
+			window.onload = function(){
+				var oInput = document.getElementsByTagName("input")[0];
+				var oBtn = document.getElementsByTagName("button")[0];
+				var oStr = document.getElementsByTagName("strong")[0];
+				
+				oInput.onkeyup = function(){
+					this.value = this.value.replace(/[^(\d)|(,)]/,"")
+				}
+				
+				oBtn.onclick = function(){
+					var sum = 0;
+					var oInput = document.getElementsByTagName("input")[0].value.split(",");
+					for(var i in oInput)
+					{
+						sum += parseInt(oInput[i]);
+					}
+					oStr.innerHTML = sum;
+				}
+			}
+		</script>
+		<style type="text/css">
+			.outer{width:500px; margin:0 auto;}
+		</style>
+	</head>
+	<body>
+		<div class="outer">
+			<label>
+				<input type="text" class="num" value="1,2,3,4,5,6,7,8,9"/><span>输入数字求和，数字之间用半角","号分隔</span>
+			</label>
+			<p>
+				<button>求和</button>
+			</p>
+			<strong>结果在这</strong>
+		</div>
+	</body>
+</html>

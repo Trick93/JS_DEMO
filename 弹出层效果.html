@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>弹出层效果</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var oBtn = document.getElementsByTagName("button")[0];
+			var oWin = document.getElementById("win");
+			var oGrey = document.getElementById("overgrey");
+			var oClose = document.getElementById("close");
+			oBtn.onclick = function(){
+				oWin.style.display = "block";
+				oGrey.style.display = "block";
+			}
+			oClose.onclick = function(){
+				oWin.style.display = "none";
+				oGrey. style.display = "none"
+			}
+		}
+	</script>
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		button{
+			padding: 1px 6px;
+			cursor: pointer;
+		}
+		center{
+			padding-top: 10px;
+		}
+		#overgrey{
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			height: 100%;
+			width: 100%;
+			background: black;
+			opacity: 0.5;
+			display: none;
+			animation: show 2s;
+		}
+		@keyframes show{
+			0%{opacity: 0;}
+			100%{opacity: 0.5;}
+		}
+		#win{
+			position: absolute;
+			height: 200px;
+			width: 400px;
+			background: #fff;
+			left: 50%;
+			top: 50%;
+			margin-left: -200px;
+			margin-top: -100px;
+			border: 4px solid #f90;
+			display: none;
+		}
+		#win h2{
+			font-size: 12px;
+			background: #fc0;
+			border-bottom: 3px solid #f90;
+			padding: 5px;
+			text-align: right;
+		}
+		#win span{
+			background: #fff;
+			color: #f90;
+			padding: 2px 1px;
+			border: 1px solid #f90;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="overgrey">
+	</div>
+	<div id="win"><h2><span id="close">×</span></h2></div>
+	<center><button>弹出</button></center>
+</body>
+</html>

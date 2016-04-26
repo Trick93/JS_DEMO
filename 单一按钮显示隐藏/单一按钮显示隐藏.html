@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>单一按钮显示隐藏</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			padding: 0px;
+			margin: 0px;
+		}
+		li{
+			list-style: none;
+		}
+
+		#contanier{
+			margin: 10px auto;
+			border: 1px solid #AAAAAA;
+			width: 200px;
+		}
+		#contanier h2{
+			height: 30px;
+			line-height: 30px;
+			color: #57646E;
+			padding-left: 10px;
+			font-size: 14px;
+			border: 1px solid #fff;
+			font-weight: 400;
+			cursor: pointer;
+			background: #CED3D7 url('ico.gif') no-repeat 180px 15px;
+		}
+		#contanier ul{
+			background: #E9EDF2;
+			font-size: 12px;
+			display: block;
+		}
+		#contanier ul li{
+			height: 25px;
+			line-height: 25px;
+		}
+		#contanier ul li a{
+			text-decoration: none;
+			color: #6B7980;
+			padding: 0 10px;
+			display: block;
+		}
+		#contanier ul li a:hover{
+			background: #fff;
+			text-decoration: underline;
+		}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+
+			function addListener(element,eventName,handler){
+				if(element.addEventListener){
+					element.addEventListener(eventName,handler,false);
+				}
+				else if(element.attachEvent){
+	   		 		element.attachEvent('on' + eventName,handler);
+	 			}		
+	 			 else{
+	    			element['on' + eventName] = handler;
+	  			}
+
+			}
+
+			var oH2 = document.getElementsByTagName('h2')[0];
+			var oUl = document.getElementById("list");
+			function change(){console.log(oUl.style.display);
+				if(oUl.style.display == "none"){
+					oUl.style.display = "block";
+					oH2.style.backgroundPosition = "180px 15px";
+				}
+				else{
+					oUl.style.display = "none";
+					oH2.style.backgroundPosition = "180px -12px";
+				}
+			}
+
+			addListener(oH2,'click',change);
+		}
+	</script>
+</head>
+<body>
+	<div id=contanier>
+		<h2>播放列表</h2>
+		<ul id="list">
+			<li><a href="#">玩家之徒 - 蔡依林</a></li>
+			<li><a href="#">原谅我就是这样的女生 - 戴佩妮</a></li>
+			<li><a href="#">猜不透 - 丁当</a></li>
+			<li><a href="#">自导自演 - 周杰伦</a></li>
+			<li><a href="#">浪漫窝 - 弦子</a></li>
+			<li><a href="#">流年 - 王菲</a></li>
+		</ul>
+	</div>
+
+</body>
+</html>

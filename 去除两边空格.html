@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>去除字符串两边空格</title>
+</head>
+<body>
+	<input type="text" id="filterText">
+	<input type="button" id="btnFilter" value="过滤">
+
+	<script type="text/javascript">
+	window.onload = function(){	
+		var btn = document.getElementById("btnFilter"),
+			str = document.getElementById("filterText");
+
+		btn.onclick = function(){
+			str.value = str.value.replace(/^(\s | \u00A0)+ | (\s | \u00A0)+$/g,"");
+		}
+	}
+	</script>
+</body>
+</html>

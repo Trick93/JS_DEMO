@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>禁止复制粘贴</title>
+</head>
+<body>
+	<input type="text" name="banCopyPaste" id="banCopyPaste" />
+	<script type="text/javascript">
+		var banCopyPaste = document.getElementById("banCopyPaste");
+		banCopyPaste.oncopy = function(){
+			return false;
+		}
+		banCopyPaste.onpaste = function(){
+			return false;
+		}
+	</script>
+</body>
+</html>

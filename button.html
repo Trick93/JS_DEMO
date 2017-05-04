@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .waves {
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
+            border-radius: 3px;
+            display: inline-block;
+            outline: none;
+            border: 0;
+            overflow: hidden;
+            position: relative;
+            opacity: 0.9;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .waves:hover {
+            opacity: 1;
+            box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .20), 0 3px 12px 0 rgba(0, 0, 0, .16);
+        }
+
+        .waves-effect {
+            border-radius: 100%;
+            background-color: #D8D8D8;
+            left: 20px;
+            top: 20px;
+            transform: scale(0);
+            width: 10px;
+            height: 10px;
+            position: absolute;
+        }
+
+        .waves-effect-animation {
+            animation: animation-definition 1s ease-out;
+            -moz-animation: animation-definition 1s ease-out;
+            -webkit-animation: animation-definition 1s ease-out;
+            -o-animation: animation-definition 1s ease-out;
+        }
+
+        @keyframes animation-definition {
+            from {
+                transform: scale(0.1);
+                opacity: 1;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="waves" style="width:125px;height:40px;background-color: #27C4B4;color:white">button1</button>
+    <button class="waves" style="width: 125px;height: 40px;background-color: #EE6E73;color: white">    
+        Button2
+    </button>
+    <br /><br />
+    <div class="waves" style="width: 125px;height: 40px;background-color: #311B92;color: white">
+        <p style="line-height:40px; display:inline;">Div</p>
+    </div>
+    <a href="#" class="waves" style="width: 125px;height: 40px;background-color: #FF9800;color: white">
+        <p style="line-height:40px; display:inline;">A</p>
+    </a>
+    <span class="waves" style="width: 125px;height: 40px;background-color: #607D8B;color: white">
+        <p style="line-height:40px; display:inline;">Span</p>
+    </span>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $(".waves").mousedown(function (e) {
+                let box = $(this);
+
+                let wavesDiv = box.find("div");
+
+                if (wavesDiv[0] == null) {
+                    let div = "<div class='waves-effect'></div>";
+                    box.append(div);
+                    wavesDiv = box.find("div");
+                }
+
+                //设置样式
+                wavesDiv[0].className = 'waves-effect';
+
+                //计算坐标
+                let wH = box.width() > box.height() ? box.width() : box.height(),
+                    iX = e.pageX - box.offset().left,
+                    iY = e.pageY - box.offset().top,
+                    nX = iX - wH / 2,
+                    nY = iY - wH / 2;
+
+                wavesDiv.css({
+                    width: wH,
+                    height: wH,
+                    left: nX,
+                    top: nY
+                }).addClass("waves-effect-animation");
+            })
+        })
+    </script>
+</body>
+
+</html>
